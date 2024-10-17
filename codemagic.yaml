@@ -2,11 +2,12 @@ workflows:
   default-workflow:
     name: Laravel Build Workflow
     environment:
-      node: latest
+      vars:
+        PHP_VERSION: 8.0
     scripts:
       - name: Install dependencies
         script: |
-          composer install
+          composer install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
           npm install
       - name: Run tests
         script: |
