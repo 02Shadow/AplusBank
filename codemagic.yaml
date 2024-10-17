@@ -1,0 +1,14 @@
+workflows:
+  default-workflow:
+    name: Laravel Build Workflow
+    environment:
+      php: latest
+      node: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          composer install
+          npm install
+      - name: Run tests
+        script: |
+          php artisan test
